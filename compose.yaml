@@ -1,0 +1,7 @@
+﻿services:
+  hackernewsapi:
+    image: hackernewsapi
+    build:
+      context: .
+      dockerfile: HackerNewsApi/Dockerfile
+
