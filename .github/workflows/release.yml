@@ -32,7 +32,7 @@ jobs:
 
       - name: Publish single-file executable
         run: >
-          dotnet publish HackerNewsApi.csproj
+          dotnet publish ./HackerNewsApi/HackerNewsApi.csproj
           -c Release
           -r ${{ matrix.rid }}
           --self-contained true
