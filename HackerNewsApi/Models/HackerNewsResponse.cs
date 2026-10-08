@@ -13,7 +13,6 @@ public record HackerNewsResponse
     public string PostedBy { get; init; } = string.Empty;
     
     [JsonPropertyName("time")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
     public long UnixTime { get; init; }
     
     public int Score { get; init; }

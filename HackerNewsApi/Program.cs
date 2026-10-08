@@ -4,6 +4,7 @@ using HackerNewsApi.HttpClients;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient(nameof(HttpClients.HackerNews),client =>
 {
     client.BaseAddress = new Uri("https://hacker-news.firebaseio.com");
