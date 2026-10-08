@@ -1,15 +1,20 @@
 using Asp.Versioning;
+using HackerNewsApi.HttpClients;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpClient(nameof(HttpClients.HackerNews),client =>
+{
+    client.BaseAddress = new Uri("https://hacker-news.firebaseio.com");
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services
     .AddApiVersioning(options =>
     {
-        // options.DefaultApiVersion = new ApiVersion(1, 0);
         options.ReportApiVersions = true;
         options.ApiVersionReader = new UrlSegmentApiVersionReader();
     })
